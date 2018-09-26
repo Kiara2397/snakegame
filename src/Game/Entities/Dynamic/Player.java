@@ -13,7 +13,11 @@ import Game.GameStates.State;
  */
 public class Player {
 
+
     public int length;
+	public int score;
+	
+
     public boolean justAte;
     private Handler handler;
 
@@ -75,6 +79,7 @@ public class Player {
         handler.getWorld().playerLocation[xCoord][yCoord]=false;
         int x = xCoord;
         int y = yCoord;
+
         switch (direction){
             case "Left":
                 if(xCoord==0){
@@ -105,6 +110,9 @@ public class Player {
                 }
                 break;
         }
+        if(handler.getWorld().playerLocation[xCoord][yCoord]==true){
+        	kill();
+        }
         handler.getWorld().playerLocation[xCoord][yCoord]=true;
 
 
@@ -122,6 +130,12 @@ public class Player {
 
     public void render(Graphics g,Boolean[][] playeLocation){
         Random r = new Random();
+        
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("TimesRoman", Font.PLAIN, 30)); 
+        g.drawString(Integer.toString(this.score), 400, 25);
+        
+        
         for (int i = 0; i < handler.getWorld().GridWidthHeightPixelCount; i++) {
             for (int j = 0; j < handler.getWorld().GridWidthHeightPixelCount; j++) {
                 
@@ -148,7 +162,10 @@ public class Player {
     }
 
     public void Eat(){
+
         length++;
+    	score++;
+
         Tail tail= null;
         handler.getWorld().appleLocation[xCoord][yCoord]=false;
         handler.getWorld().appleOnBoard=false;
@@ -264,6 +281,7 @@ public class Player {
 
             }
         }
+        State.setState(handler.getGame().gameOverState);
     }
 
     public boolean isJustAte() {
