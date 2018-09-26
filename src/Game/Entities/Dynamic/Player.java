@@ -19,14 +19,15 @@ public class Player {
     public int yCoord;
 
     public int moveCounter;
-
+    private final int DEFAULT_SPEED = 3;
+    
     public String direction;//is your first name one?
 
     public Player(Handler handler){
         this.handler = handler;
         xCoord = 0;
         yCoord = 0;
-        moveCounter = 0;
+        moveCounter = DEFAULT_SPEED ;
         direction= "Right";
         justAte = false;
         lenght= 1;
@@ -37,7 +38,7 @@ public class Player {
         moveCounter++;
         if(moveCounter>=5) {
             checkCollisionAndMove();
-            moveCounter=0;
+            moveCounter=DEFAULT_SPEED;
         }
         if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_UP)){
             direction="Up";
