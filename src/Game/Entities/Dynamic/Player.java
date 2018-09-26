@@ -6,6 +6,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.Random;
 
+import Game.GameStates.GameState;
 import Game.GameStates.State;
 
 /**
@@ -73,6 +74,10 @@ public class Player {
         	length++;
         	handler.getWorld().body.addFirst(new Tail(xCoord,yCoord,handler));
        }
+        //Resets Game with key 'R'
+        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_R)){
+        	State.setState(new GameState(handler));
+        }
     }
 
     public void checkCollisionAndMove(){
