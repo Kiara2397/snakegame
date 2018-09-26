@@ -11,6 +11,8 @@ import java.util.Random;
  */
 public class Player {
 
+	public int score;
+	
     public int lenght;
     public boolean justAte;
     private Handler handler;
@@ -102,6 +104,11 @@ public class Player {
 
     public void render(Graphics g,Boolean[][] playeLocation){
         Random r = new Random();
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("TimesRoman", Font.PLAIN, 30)); 
+        g.drawString(Integer.toString(this.score), 400, 25);
+        
+        
         for (int i = 0; i < handler.getWorld().GridWidthHeightPixelCount; i++) {
             for (int j = 0; j < handler.getWorld().GridWidthHeightPixelCount; j++) {
                 
@@ -128,6 +135,7 @@ public class Player {
     }
 
     public void Eat(){
+    	score++;
         lenght++;
         Tail tail= null;
         handler.getWorld().appleLocation[xCoord][yCoord]=false;
