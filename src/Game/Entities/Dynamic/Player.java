@@ -6,6 +6,8 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.Random;
 
+import Game.GameStates.State;
+
 /**
  * Created by AlexVR on 7/2/2018.
  */
@@ -56,6 +58,10 @@ public class Player {
         }
         if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_MINUS)){
         	speed++;
+        }
+        
+        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_P)){
+        	State.setState(handler.getGame().pauseState);;
         }
     }
 
