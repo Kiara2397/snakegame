@@ -20,14 +20,15 @@ public class Player {
 
     public int moveCounter;
     private final int DEFAULT_SPEED = 3;
-    
+    public int speed = DEFAULT_SPEED;
+
     public String direction;//is your first name one?
 
     public Player(Handler handler){
         this.handler = handler;
         xCoord = 0;
         yCoord = 0;
-        moveCounter = DEFAULT_SPEED ;
+        moveCounter = DEFAULT_SPEED;
         direction= "Right";
         justAte = false;
         lenght= 1;
@@ -36,9 +37,9 @@ public class Player {
 
     public void tick(){
         moveCounter++;
-        if(moveCounter>=5) {
+        if(moveCounter>=speed) {
             checkCollisionAndMove();
-            moveCounter=DEFAULT_SPEED;
+            moveCounter = 0;
         }
         if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_UP)){
             direction="Up";
@@ -49,7 +50,13 @@ public class Player {
         }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_RIGHT)){
             direction="Right";
         }
-
+       
+        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_EQUALS)) {
+        	speed--;
+        }
+        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_MINUS)){
+        	speed++;
+        }
     }
 
     public void checkCollisionAndMove(){
@@ -254,4 +261,5 @@ public class Player {
     public void setJustAte(boolean justAte) {
         this.justAte = justAte;
     }
-}
+
+  }
