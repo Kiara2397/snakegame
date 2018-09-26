@@ -43,14 +43,14 @@ public class Player {
             checkCollisionAndMove();
             moveCounter = 0;
         }
-        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_UP)){
-            direction="Up";
-        }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_DOWN)){
-            direction="Down";
-        }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_LEFT)){
-            direction="Left";
-        }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_RIGHT)){
-            direction="Right";
+        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_UP) && !(direction.equals("Down"))){
+            direction = "Up";
+        }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_DOWN) && !(direction.equals("Up"))){
+            direction ="Down";
+        }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_LEFT) && !(direction.equals("Right"))){
+            direction ="Left";
+        }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_RIGHT) && !(direction.equals("Left"))){
+            direction ="Right";
         }
        //Increases Speed
         if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_EQUALS)) {
