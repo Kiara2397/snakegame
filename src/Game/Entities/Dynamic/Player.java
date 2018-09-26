@@ -13,7 +13,7 @@ import Game.GameStates.State;
  */
 public class Player {
 
-    public int lenght;
+    public int length;
     public boolean justAte;
     private Handler handler;
 
@@ -33,7 +33,7 @@ public class Player {
         moveCounter = DEFAULT_SPEED;
         direction= "Right";
         justAte = false;
-        lenght= 1;
+        length= 1;
 
     }
 
@@ -52,17 +52,23 @@ public class Player {
         }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_RIGHT)){
             direction="Right";
         }
-       
+       //Increases Speed
         if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_EQUALS)) {
         	speed--;
         }
+        //Decreases Speed
         if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_MINUS)){
         	speed++;
         }
-        
+        //Pauses Game
         if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_P)){
         	State.setState(handler.getGame().pauseState);;
         }
+        //Adds Tails with key 'N'
+        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_N)){
+        	length++;
+        	handler.getWorld().body.addFirst(new Tail(xCoord,yCoord,handler));
+       }
     }
 
     public void checkCollisionAndMove(){
@@ -142,7 +148,7 @@ public class Player {
     }
 
     public void Eat(){
-        lenght++;
+        length++;
         Tail tail= null;
         handler.getWorld().appleLocation[xCoord][yCoord]=false;
         handler.getWorld().appleOnBoard=false;
@@ -250,7 +256,7 @@ public class Player {
     }
 
     public void kill(){
-        lenght = 0;
+        length = 0;
         for (int i = 0; i < handler.getWorld().GridWidthHeightPixelCount; i++) {
             for (int j = 0; j < handler.getWorld().GridWidthHeightPixelCount; j++) {
 
