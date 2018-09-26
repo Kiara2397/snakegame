@@ -6,6 +6,8 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.Random;
 
+import Game.GameStates.State;
+
 /**
  * Created by AlexVR on 7/2/2018.
  */
@@ -57,6 +59,7 @@ public class Player {
         handler.getWorld().playerLocation[xCoord][yCoord]=false;
         int x = xCoord;
         int y = yCoord;
+
         switch (direction){
             case "Left":
                 if(xCoord==0){
@@ -87,6 +90,9 @@ public class Player {
                 }
                 break;
         }
+        if(handler.getWorld().playerLocation[xCoord][yCoord]==true){
+        	kill();
+        }
         handler.getWorld().playerLocation[xCoord][yCoord]=true;
 
 
@@ -104,6 +110,7 @@ public class Player {
 
     public void render(Graphics g,Boolean[][] playeLocation){
         Random r = new Random();
+        
         g.setColor(Color.WHITE);
         g.setFont(new Font("TimesRoman", Font.PLAIN, 30)); 
         g.drawString(Integer.toString(this.score), 400, 25);
@@ -252,6 +259,7 @@ public class Player {
 
             }
         }
+        State.setState(handler.getGame().gameOverState);
     }
 
     public boolean isJustAte() {
