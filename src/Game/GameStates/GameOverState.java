@@ -33,7 +33,7 @@ public class GameOverState extends State {
 
     @Override
     public void render(Graphics g) {
-        g.drawImage(Images.SnakeGameOver,0,0,900,900,null);
+        g.drawImage(Images.SnakeGameOver,0,0,840,840,null);
         uiManager.Render(g);
 
     }

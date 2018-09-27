@@ -1,6 +1,7 @@
 package Game.Entities.Dynamic;
 
 import Main.Handler;
+import Resources.Images;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -153,11 +154,11 @@ public class Player {
                             handler.getWorld().GridPixelsize);
                 }
                 if (handler.getWorld().appleLocation[i][j]){
-                	g.setColor(Color.RED);
-                	g.fillRect((i*handler.getWorld().GridPixelsize),
-                            (j*handler.getWorld().GridPixelsize),
-                            handler.getWorld().GridPixelsize,
-                            handler.getWorld().GridPixelsize);
+                	g.drawImage(Images.Apple,i*handler.getWorld().GridPixelsize,
+                			j*handler.getWorld().GridPixelsize,
+                			handler.getWorld().GridPixelsize+1,
+                			handler.getWorld().GridPixelsize+1,null);
+
                 }
 
             }
