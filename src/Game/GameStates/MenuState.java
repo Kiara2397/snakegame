@@ -46,13 +46,7 @@ public class MenuState extends State {
 				String instructions =  "Press <M> key to Mute/Unmute \n"
 						+ "Press <P> to Pause Game \n" + "Press <R> key to Reset Game \n" 
 						+ "Press <+/-> to control speed \n" + "Press <N> Key to add tails";
-				JOptionPane instrFrame = new JOptionPane();
 				JOptionPane.showMessageDialog(null,instructions,"Instructions",JOptionPane.INFORMATION_MESSAGE);
-				DisplayScreen.getFrame().add(instrFrame);
-				int result = 0;
-				if (result == JOptionPane.OK_OPTION) {
-					DisplayScreen.getFrame().remove(instrFrame);;
-					}
 				}
 		}));
 
