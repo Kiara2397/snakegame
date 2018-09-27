@@ -22,6 +22,8 @@ public class Images {
 	public static BufferedImage[] Resume;
 	public static BufferedImage[] Quit;
 	public static BufferedImage[] Options;
+	public static BufferedImage[] Yes;
+	public static BufferedImage[] No;
 	public static ImageIcon icon;
 	public static BufferedImage SnakeGameOver;
 	public static BufferedImage Apple;
@@ -34,13 +36,15 @@ public class Images {
 		Resume = new BufferedImage[2];
 		Quit = new BufferedImage[2];
 		Options = new BufferedImage[2];
+		Yes = new BufferedImage[2];
+		No = new BufferedImage[2];
 
 		try {
 
 
 			Snaketitle = ImageIO.read(getClass().getResourceAsStream("/Sheets/SnakeTitle.png"));
-			SnakePause = ImageIO.read(getClass().getResourceAsStream("/Buttons/SnakePause.png"));
-            SnakeGameOver = ImageIO.read(getClass().getResourceAsStream("/Buttons/SnakeGameOver.png"));
+			SnakePause = ImageIO.read(getClass().getResourceAsStream("/Sheets/SnakePause.png"));
+            SnakeGameOver = ImageIO.read(getClass().getResourceAsStream("/Sheets/SnakeGameOver2.png"));
             Apple = ImageIO.read(getClass().getResourceAsStream("/Sheets/apple-red-cartoon-hi.png"));
 			icon =  new ImageIcon(ImageIO.read(getClass().getResourceAsStream("/Sheets/icon.png")));
 			
@@ -52,6 +56,12 @@ public class Images {
 			
 			Options[0] = ImageIO.read(getClass().getResourceAsStream("/Buttons/Options.png"));
 			Options[1] = ImageIO.read(getClass().getResourceAsStream("/Buttons/OptionsP.png"));
+			
+			Yes[0] = ImageIO.read(getClass().getResourceAsStream("/Buttons/Yes.png"));
+			Yes[1] = ImageIO.read(getClass().getResourceAsStream("/Buttons/YesP.png"));
+			
+			No[0] = ImageIO.read(getClass().getResourceAsStream("/Buttons/No.png"));
+			No[1] = ImageIO.read(getClass().getResourceAsStream("/Buttons/NoP.png"));
 
 			startBut[0]= ImageIO.read(getClass().getResourceAsStream("/Buttons/StartNBut.png"));//normbut
 			startBut[1]= ImageIO.read(getClass().getResourceAsStream("/Buttons/StartHBut.png"));//hoverbut
