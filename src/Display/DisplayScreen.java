@@ -12,7 +12,7 @@ import javax.swing.*;
 
 public class DisplayScreen {
 
-    private JFrame frame;
+    public static JFrame frame;
     private Canvas canvas;
     private String title;
     private int width, height;
@@ -37,7 +37,7 @@ public class DisplayScreen {
         frame.setBackground(Color.black);
 
         try {
-            frame.setIconImage(ImageIO.read(new File("res/Sheets/icon.png")));
+            frame.setIconImage(ImageIO.read(new File("res/Sheets/SnakeIcon.png")));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -57,7 +57,7 @@ public class DisplayScreen {
         return canvas;
     }
 
-    public JFrame getFrame(){
+    public static JFrame getFrame(){
         return frame;
     }
 
