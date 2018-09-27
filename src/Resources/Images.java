@@ -24,6 +24,7 @@ public class Images {
 	public static BufferedImage[] Options;
 	public static ImageIcon icon;
 	public static BufferedImage SnakeGameOver;
+	public static BufferedImage Apple;
 
 
     public Images() {
@@ -53,6 +54,7 @@ public class Images {
 			butstart[1]= ImageIO.read(getClass().getResourceAsStream("/Buttons/HoverBut.png"));//hoverbut
 			butstart[2]= ImageIO.read(getClass().getResourceAsStream("/Buttons/ClickedBut.png"));//clickbut
             SnakeGameOver = ImageIO.read(getClass().getResourceAsStream("/Buttons/SnakeGameOver.png"));
+            Apple = ImageIO.read(getClass().getResourceAsStream("/Sheets/apple-red-cartoon-hi.png"));
 			icon =  new ImageIcon(ImageIO.read(getClass().getResourceAsStream("/Sheets/icon.png")));
 
 
