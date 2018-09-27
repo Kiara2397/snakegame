@@ -49,6 +49,7 @@ public class Player {
             checkCollisionAndMove();
             moveCounter = 0;
         }
+        //Prevent Backtracking
         if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_UP) && !(direction.equals("Down"))){
             direction = "Up";
         }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_DOWN) && !(direction.equals("Up"))){
@@ -116,6 +117,7 @@ public class Player {
                 }
                 break;
         }
+        //Self Collision
         if(handler.getWorld().playerLocation[xCoord][yCoord]==true){
         	kill();
         }
@@ -137,6 +139,7 @@ public class Player {
     public void render(Graphics g,Boolean[][] playeLocation){
         Random r = new Random();
         
+        //Display Score
         g.setColor(Color.WHITE);
         g.setFont(new Font("TimesRoman", Font.PLAIN, 30)); 
         g.drawString(Integer.toString(this.score), 400, 25);
@@ -145,7 +148,7 @@ public class Player {
         for (int i = 0; i < handler.getWorld().GridWidthHeightPixelCount; i++) {
             for (int j = 0; j < handler.getWorld().GridWidthHeightPixelCount; j++) {
                 
-
+            	//Draw Green Snake
                 if(playeLocation[i][j]){
                 	g.setColor(Color.GREEN);
                     g.fillRect((i*handler.getWorld().GridPixelsize),
@@ -153,6 +156,7 @@ public class Player {
                             handler.getWorld().GridPixelsize,
                             handler.getWorld().GridPixelsize);
                 }
+                //Draw Apple Image
                 if (handler.getWorld().appleLocation[i][j]){
                 	g.drawImage(Images.Apple,i*handler.getWorld().GridPixelsize,
                 			j*handler.getWorld().GridPixelsize,

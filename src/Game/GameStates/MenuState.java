@@ -27,7 +27,7 @@ public class MenuState extends State {
 		uiManager = new UIManager(handler);
 		handler.getMouseManager().setUimanager(uiManager);
 
-
+		//Start Button
 		uiManager.addObjects(new UIImageButton(460,400, 160, 90, Images.startBut, new ClickListlener() {
 			@Override
 			public void onClick() {

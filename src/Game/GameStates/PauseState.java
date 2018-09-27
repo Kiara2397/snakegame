@@ -20,28 +20,17 @@ public class PauseState extends State {
         uiManager = new UIManager(handler);
         handler.getMouseManager().setUimanager(uiManager);
 
+        //Resume Button
         uiManager.addObjects(new UIImageButton(260, 360, 300, 150, Images.Resume, () -> {
             handler.getMouseManager().setUimanager(null);
             State.setState(handler.getGame().gameState);
         }));
         
+        //Quit To Menu Button
         uiManager.addObjects(new UIImageButton(230, 360+(150), 350, 150, Images.Quit, () -> {
             handler.getMouseManager().setUimanager(null);
             State.setState(handler.getGame().menuState);
         }));
-
-//        uiManager.addObjects(new UIImageButton(380, 350+(64+16), 128, 64, Images.Options, () -> {
-//            handler.getMouseManager().setUimanager(null);
-//            State.setState(handler.getGame().menuState);
-//        }));
-
-//        uiManager.addObjects(new UIImageButton(380, (350+(64+16))+(64+16), 128, 64, Images.BTitle, () -> {
-//            handler.getMouseManager().setUimanager(null);
-//            State.setState(handler.getGame().menuState);
-//        }));
-
-
-
 
 
     }

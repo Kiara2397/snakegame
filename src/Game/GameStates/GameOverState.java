@@ -2,8 +2,6 @@ package Game.GameStates;
 
 import Main.Handler;
 import Resources.Images;
-import UI.ClickListlener;
-import UI.UIImageButton;
 import UI.UIManager;
 
 import java.awt.*;
