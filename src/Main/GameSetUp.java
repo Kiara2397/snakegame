@@ -53,7 +53,7 @@ public class GameSetUp implements Runnable {
     private AudioInputStream audioStream;
     private AudioFormat format;
     private DataLine.Info info;
-    private Clip audioClip;
+    private static Clip audioClip;
 
     private BufferedImage loading;
 
@@ -89,7 +89,7 @@ public class GameSetUp implements Runnable {
 
         try {
 
-            audioFile = getClass().getResourceAsStream("/music/nature.wav");
+            audioFile = getClass().getResourceAsStream("/music/Snake_Trance.wav");
             audioStream = AudioSystem.getAudioInputStream(audioFile);
             format = audioStream.getFormat();
             info = new DataLine.Info(Clip.class, format);
@@ -214,5 +214,9 @@ public class GameSetUp implements Runnable {
     public int getHeight(){
         return height;
     }
+
+	public static Clip getAudioClip() {
+		return audioClip;
+	}
 }
 
