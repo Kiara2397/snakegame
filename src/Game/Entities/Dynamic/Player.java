@@ -50,13 +50,28 @@ public class Player {
             moveCounter = 0;
         }
         //Prevent Backtracking
-        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_UP) && !(direction.equals("Down"))){
+        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_UP) && !(direction.equals("Down")) &&
+        		!(handler.getKeyManager().keyJustPressed(KeyEvent.VK_DOWN))&& 
+        		!(handler.getKeyManager().keyJustPressed(KeyEvent.VK_LEFT))&&
+        		!(handler.getKeyManager().keyJustPressed(KeyEvent.VK_RIGHT))){
             direction = "Up";
-        }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_DOWN) && !(direction.equals("Up"))){
+        }
+        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_DOWN) && !(direction.equals("Up")) &&
+        		!(handler.getKeyManager().keyJustPressed(KeyEvent.VK_UP))&& 
+        		!(handler.getKeyManager().keyJustPressed(KeyEvent.VK_LEFT))&&
+        		!(handler.getKeyManager().keyJustPressed(KeyEvent.VK_RIGHT))){
             direction ="Down";
-        }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_LEFT) && !(direction.equals("Right"))){
+        }
+        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_LEFT) && !(direction.equals("Right")) &&
+        		!(handler.getKeyManager().keyJustPressed(KeyEvent.VK_UP))&& 
+        		!(handler.getKeyManager().keyJustPressed(KeyEvent.VK_DOWN))&&
+        		!(handler.getKeyManager().keyJustPressed(KeyEvent.VK_RIGHT))){
             direction ="Left";
-        }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_RIGHT) && !(direction.equals("Left"))){
+        }
+        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_RIGHT) && !(direction.equals("Left")) &&
+        		!(handler.getKeyManager().keyJustPressed(KeyEvent.VK_UP))&& 
+        		!(handler.getKeyManager().keyJustPressed(KeyEvent.VK_DOWN))&&
+        		!(handler.getKeyManager().keyJustPressed(KeyEvent.VK_LEFT))){
             direction ="Right";
         }
        //Increases Speed
