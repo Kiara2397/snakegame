@@ -11,6 +11,9 @@ import Input.MouseManager;
 import Resources.Images;
 
 import javax.sound.sampled.*;
+
+import com.sun.glass.events.KeyEvent;
+
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
@@ -158,6 +161,16 @@ public class GameSetUp implements Runnable {
     }
 
     private void tick(){
+    	// Mutes/Unmutes game 
+       	if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_M)){
+    		if(audioClip.isActive()){
+    			audioClip.stop();
+    		}
+    		else {
+    			audioClip.start();
+    			GameSetUp.getAudioClip().loop(Clip.LOOP_CONTINUOUSLY);
+    		}
+       	}
         //checks for key types and manages them
         keyManager.tick();
 
